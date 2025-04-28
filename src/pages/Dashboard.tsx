@@ -219,9 +219,9 @@ export default function Dashboard() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 text-sm">
+                {/* <p className="mb-4 text-sm">
                   Complete your first networking task to earn points and unlock more features.
-                </p>
+                </p> */}
                 <Button 
                   variant="secondary" 
                   className="w-full bg-white text-brand-primary hover:bg-gray-100"
