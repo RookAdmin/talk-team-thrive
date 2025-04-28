@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useAuth } from "@/context/AuthContext";
 import Layout from "@/components/Layout";
@@ -99,9 +98,9 @@ export default function Dashboard() {
         <p className="text-gray-600 mt-1">Continue developing your professional skills.</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Content - 2/3 width on desktop */}
-        <div className="md:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-6">
           {/* Current Tasks Section */}
           <section>
             <div className="flex justify-between items-center mb-4">
@@ -202,53 +201,55 @@ export default function Dashboard() {
         </div>
         
         {/* Sidebar - 1/3 width on desktop */}
-        <div className="space-y-6">
-          {/* Progress Tracker */}
-          <MilestoneTracker 
-            level={user.milestoneLevel}
-            tasksCompleted={user.tasksCompleted}
-            connectionsCount={user.connectionsCount}
-          />
-          
-          {/* Quick Action Card */}
-          <Card className="bg-brand-primary text-white">
-            <CardHeader>
-              <CardTitle className="text-white">Ready to Start Networking?</CardTitle>
-              <CardDescription className="text-gray-100">
-                Your first tasks await you!
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-4 text-sm">
-                Complete your first networking task to earn points and unlock more features.
-              </p>
-              <Button 
-                variant="secondary" 
-                className="w-full bg-white text-brand-primary hover:bg-gray-100"
-                onClick={() => navigate("/networking")}
-              >
-                Start Networking <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </CardContent>
-          </Card>
-          
-          {/* Need Support Card */}
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg">Need Support?</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button variant="outline" className="w-full flex justify-between">
-                <span>Contact Support</span>
-                <MessageCircle className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" className="w-full flex justify-between">
-                <span>Community Forum</span>
-                <Users className="h-4 w-4" />
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+        <aside className="space-y-6">
+          <div className="sticky top-6">
+            {/* Progress Tracker */}
+            <MilestoneTracker 
+              level={user.milestoneLevel}
+              tasksCompleted={user.tasksCompleted}
+              connectionsCount={user.connectionsCount}
+            />
+            
+            {/* Quick Action Card */}
+            <Card className="bg-brand-primary text-white mt-6">
+              <CardHeader>
+                <CardTitle className="text-white">Ready to Start Networking?</CardTitle>
+                <CardDescription className="text-gray-100">
+                  Your first tasks await you!
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-sm">
+                  Complete your first networking task to earn points and unlock more features.
+                </p>
+                <Button 
+                  variant="secondary" 
+                  className="w-full bg-white text-brand-primary hover:bg-gray-100"
+                  onClick={() => navigate("/networking")}
+                >
+                  Start Networking <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+            
+            {/* Need Support Card */}
+            <Card className="mt-6">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">Need Support?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Button variant="outline" className="w-full flex justify-between">
+                  <span>Contact Support</span>
+                  <MessageCircle className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" className="w-full flex justify-between">
+                  <span>Community Forum</span>
+                  <Users className="h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </aside>
       </div>
     </Layout>
   );
