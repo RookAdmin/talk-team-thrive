@@ -29,11 +29,11 @@ export default function Navbar() {
               <Link to="/dashboard" className="text-gray-700 hover:text-brand-primary">
                 Dashboard
               </Link>
+              <Link to="/courses" className="text-gray-700 hover:text-brand-primary font-medium flex items-center">
+                <BookOpen className="mr-1 h-4 w-4" /> Courses
+              </Link>
               <Link to="/networking" className="text-gray-700 hover:text-brand-primary">
                 Networking
-              </Link>
-              <Link to="/courses" className="text-gray-700 hover:text-brand-primary">
-                Courses
               </Link>
               <Link to="/projects" className="text-gray-700 hover:text-brand-primary">
                 Projects
@@ -50,45 +50,55 @@ export default function Navbar() {
               <Link to="/auth" className="text-gray-700 hover:text-brand-primary">
                 Login
               </Link>
+              <Link to="/courses" className="text-gray-700 hover:text-brand-primary font-medium flex items-center">
+                <BookOpen className="mr-1 h-4 w-4" /> Courses
+              </Link>
             </>
           )}
         </div>
 
-        {isAuthenticated ? (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                className="rounded-full h-10 w-10 p-0 border-2 border-gray-200 hover:border-brand-primary"
-              >
-                <User className="h-5 w-5" />
-                <span className="sr-only">User menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <span className="text-sm font-medium text-gray-700">{user?.name}</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <span className="text-xs text-gray-500">{user?.email}</span>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => logout()}>
-                Logout
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        ) : (
-          <div className="md:hidden">
+        {/* Mobile button for courses */}
+        <div className="md:hidden flex gap-2">
+          <Link to="/courses">
+            <Button variant="outline" size="sm" className="flex items-center">
+              <BookOpen className="mr-1 h-4 w-4" /> Courses
+            </Button>
+          </Link>
+
+          {isAuthenticated ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="rounded-full h-10 w-10 p-0 border-2 border-gray-200 hover:border-brand-primary"
+                >
+                  <User className="h-5 w-5" />
+                  <span className="sr-only">User menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <span className="text-sm font-medium text-gray-700">{user?.name}</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span className="text-xs text-gray-500">{user?.email}</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => logout()}>
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
             <Link to="/auth">
               <Button variant="outline" size="sm">
                 Login
               </Button>
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </nav>
   );
