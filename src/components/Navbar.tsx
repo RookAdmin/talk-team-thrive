@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User } from "lucide-react";
+import { User, MessageCircle, BookOpen, Users } from "lucide-react";
 
 export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
@@ -34,6 +34,15 @@ export default function Navbar() {
               </Link>
               <Link to="/courses" className="text-gray-700 hover:text-brand-primary">
                 Courses
+              </Link>
+              <Link to="/projects" className="text-gray-700 hover:text-brand-primary">
+                Projects
+              </Link>
+              <Link to="/discussions" className="text-gray-700 hover:text-brand-primary">
+                Discussions
+              </Link>
+              <Link to="/presentations" className="text-gray-700 hover:text-brand-primary">
+                Presentations
               </Link>
             </>
           ) : (
