@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,7 @@ import { User, MessageCircle, BookOpen, Users } from "lucide-react";
 
 export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <nav className="bg-white border-b border-gray-200 shadow-sm py-4">
